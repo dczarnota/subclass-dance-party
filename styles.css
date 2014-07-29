@@ -25,3 +25,9 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+.celine{
+  border: none;
+  content: url('http://i1.wp.com/www.loonwatch.com/wp-content/uploads/2013/10/Celine-Dion-celine-dion-131589_1280_1024.jpg');
+  height: 100px;
+  width: 100px;
+}
