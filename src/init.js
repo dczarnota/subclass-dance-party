@@ -45,49 +45,33 @@ $(document).ready(function(){
   });
 
   $(".interactButton").on("click", function(event){
+    var x = [];
+    var interactSettings = {
+      top: 100,
+      left: 100,
+      border: 100
+
+    };
       for(var i=0; i<window.dancers.length; i++){
-      var top1 = (window.dancers[i]['$node'][0]['style']['top']).slice(0,3);
-      top1 = Number(top1);
-        if(top1 < 500) {
-          window.dancers[i].lineUp();
+      var top1 = window.dancers[i]['$node'][0]['style']['top'];
+      top1 = parseInt(top1);
+
+      var selectDancer = window.dancers[i]['$node'];
+
+        for(var j=0; j<window.dancers.length; j++){
+          var left1 = window.dancers[j]['$node'][0]['style']['left'];
+          left1 = parseInt(left1);
+            if(top1 < 400 && left1 < 400) {
+              $(selectDancer).animate({
+                    left:'750px',
+                    opacity:'0.5',
+                    height: 'auto',
+                    width:'25%'
+                });
+            }
+          }
         }
-      }
-    event.preventDefault();
-
     });
-
-    // var left = window.dancers[i]['$node'][0]['style']['left'];
-
-    /* if ((obj1[top] - obj2[top]) < 100)
-      then obj1 and obj2 do something;*/
-        // for(var j=0; j<window.dancers.length; j++){
-        //    var top2 = window.dancers[j]['$node'][0]['style']['top'];
-        //     if(Math.abs(top1 - top2) <= 500){
-        //       window.dancers[i].lineUp();
-        //       window.dancers[j].lineUp();
-        //     }
-        // }
-
-    // obj1 top: 244, left 1289
-    // obj2 top: 102, left 947
-    // obj3 top: 500, left: 600
-    // console.log(window.dancers[0]['$node'][0]['style']['top']);
-    // console.log(window.dancers[0]['$node'][0]['style']['left']);
-    //
-
-
-/*  if(window.dancers.length > 10){
-    $("body").css('background-image' 'url("http://www.voxmagazine.com/wp-content/uploads/2013/03/1x02_Top_Banana_44.png")');
-  }
-*/
-// window.dancers[0]
 });
-/* .animate( properties [, duration ] [, easing ] [, complete ] )
-$( "#book" ).animate({
-    opacity: 0.25,
-    left: "+=50",
-    height: "toggle"
-  }, 5000, function() {
-    // Animation complete.
-  });*/
+
 
