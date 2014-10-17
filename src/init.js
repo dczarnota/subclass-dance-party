@@ -1,4 +1,3 @@
-// INIT.JS
 $(document).ready(function(){
   window.dancers = [];
 
@@ -17,11 +16,10 @@ $(document).ready(function(){
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
-    //$(node).MakeBlinkyDancer()
 
     // get the maker function for the kind of dancer we're supposed to make
-    var dancerMakerFunction = dancerMakerFunctionName();
-    console.log(dancerMakerFunction);
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+
     // make a dancer with a random position
 
     var dancer = dancerMakerFunction(
@@ -29,7 +27,6 @@ $(document).ready(function(){
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
-    // ^^ dancer = dancerMakerFunction(top, left, interval);
     $('body').append(dancer.$node);
   });
 });
